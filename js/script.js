@@ -37,26 +37,33 @@ function initScripts() {
 
     // Portfolio filter functionality
     const filterBtns = document.querySelectorAll(".filter-btn");
-    const items = document.querySelectorAll(".portfolio-item");
+    const grid = document.querySelector(".portfolio-grid");
+    const items = Array.from(document.querySelectorAll(".portfolio-item"));
 
     filterBtns.forEach(btn => {
         btn.addEventListener("click", () => {
+            // Toggle active button
             filterBtns.forEach(b => b.classList.remove("active"));
             btn.classList.add("active");
 
             const filter = btn.getAttribute("data-filter");
 
-            items.forEach(item => {
-                const match = filter === "all" || item.getAttribute("data-category") === filter;
+            // Remove all items from grid temporarily
+            grid.innerHTML = "";
 
-                if (match) {
-                    item.classList.remove("hide");
-                } else {
-                    item.classList.add("hide");
-                }
+            // Filter items
+            const filtered = items.filter(item =>
+                filter === "all" || item.getAttribute("data-category") === filter
+            );
+
+            // Append filtered items back to grid
+            filtered.forEach(item => {
+                grid.appendChild(item);
             });
         });
     });
+
+
 
 
     // Smooth scrolling for navigation links

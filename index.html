@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Lottie Player Web Component -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
+    <!-- Load CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/portfolio.css">
+
 </head>
 
 <body>
@@ -177,64 +179,65 @@
             <!-- Filter Buttons -->
             <div class="portfolio-filters">
                 <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+                <button class="filter-btn" data-filter="food-delivery">Food Delivery</button>
                 <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
                 <button class="filter-btn" data-filter="social">Social</button>
-                <button class="filter-btn" data-filter="games">Games</button>
+                <button class="filter-btn" data-filter="other">Ohter</button>
             </div>
 
             <!-- Portfolio Grid -->
             <div class="portfolio-grid">
-                <div class="portfolio-item" data-category="ecommerce">
-                    <div class="portfolio-image"><i class="fas fa-shopping-cart"></i></div>
-                    <div class="portfolio-content">
-                        <h3>E-commerce App</h3>
-                        <p>Full-featured shopping app with payment integration, cart management, and user
-                            authentication.</p>
-                    </div>
-                </div>
 
-                <div class="portfolio-item" data-category="social">
-                    <div class="portfolio-image"><i class="fas fa-comments"></i></div>
-                    <div class="portfolio-content">
-                        <h3>Chat Application</h3>
-                        <p>Real-time messaging app with multimedia sharing, group chats, and push notifications.</p>
+                <a href="https://github.com/AmrSalahDev/FoodDelivery" target="_blank"
+                    style="text-decoration: none; color: inherit;">
+                    <div class="portfolio-item" data-category="food-delivery">
+                        <div class="portfolio-image">
+                            <img src="https://raw.githubusercontent.com/AmrSalahDev/FoodDelivery/main/screenshots/figma_thumbnail.png"
+                                alt="Food Delivery Thumbnail">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Food Delivery App</h3>
+                            <p>🍔 Food Delivery App A modern Food Delivery App built with Flutter. The app provides an
+                                intuitive UI and seamless experience for browsing restaurants, selecting meals, and
+                                placing orders.</p>
+                        </div>
                     </div>
-                </div>
+                </a>
 
-                <div class="portfolio-item" data-category="mobile">
-                    <div class="portfolio-image"><i class="fas fa-hospital"></i></div>
-                    <div class="portfolio-content">
-                        <h3>Healthcare App</h3>
-                        <p>Patient management system with appointment booking, medical records, and telemedicine
-                            features.</p>
-                    </div>
-                </div>
 
-                <div class="portfolio-item" data-category="mobile">
-                    <div class="portfolio-image"><i class="fas fa-chart-line"></i></div>
-                    <div class="portfolio-content">
-                        <h3>Finance Tracker</h3>
-                        <p>Personal finance management app with expense tracking, budgeting, and financial analytics.
-                        </p>
+                <a href="https://github.com/AmrSalahDev/QR-Code-Scanner" target="_blank"
+                    style="text-decoration: none; color: inherit;">
+                    <div class="portfolio-item" data-category="other">
+                        <div class="portfolio-image">
+                            <img src="https://raw.githubusercontent.com/AmrSalahDev/QR-Code-Scanner/main/screenshots/figma-thumbnail.png"
+                                alt="Qr Code Scanner Thumbnail">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>QR Code Scanner App</h3>
+                            <p>📱 QR Code Scanner App (Flutter) A powerful and easy-to-use QR Code Scanner app built
+                                with Flutter, featuring modern UI and essential functionality. This app allows users to
+                                scan QR codes instantly, view scan history, and generate new QR codes with custom data.
+                            </p>
+                        </div>
                     </div>
-                </div>
+                </a>
 
-                <div class="portfolio-item" data-category="games">
-                    <div class="portfolio-image"><i class="fas fa-music"></i></div>
-                    <div class="portfolio-content">
-                        <h3>Music Streaming</h3>
-                        <p>Music player app with streaming capabilities, playlists, and social sharing features.</p>
+                <a href="https://github.com/AmrSalahDev/ZappSaver" target="_blank"
+                    style="text-decoration: none; color: inherit;">
+                    <div class="portfolio-item" data-category="other">
+                        <div class="portfolio-image">
+                            <img src="https://raw.githubusercontent.com/AmrSalahDev/ZappSaver/main/screenshots/figma_thumbnail.png"
+                                alt="ZappSaver Thumbnail">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>ZappSaver App</h3>
+                            <p>📱 WhatsApp Status Saver & Message Recovery Save. Recover. Control your WhatsApp experience. This Flutter app lets you: 📥 Save WhatsApp Statuses (images & videos) directly to your phone before they disappear. 🕵️ Recover Deleted Messages even after the sender deletes them. 💾 View, manage, and share saved statuses anytime.
+                            </p>
+                        </div>
                     </div>
-                </div>
+                </a>
 
-                <div class="portfolio-item" data-category="mobile">
-                    <div class="portfolio-image"><i class="fas fa-running"></i></div>
-                    <div class="portfolio-content">
-                        <h3>Fitness App</h3>
-                        <p>Workout tracking app with exercise routines, progress monitoring, and social features.</p>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>
@@ -305,11 +308,27 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="social-links">
-                <a href="#" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="mailto:amrsalahdev71@gmail.com" class="social-link" aria-label="Email" target="_blank">
+                    <i class="fas fa-envelope"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/amr-salah-02378b283/" class="social-link" aria-label="LinkedIn"
+                    target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+
+                <a href="https://github.com/AmrSalahDev" class="social-link" aria-label="GitHub" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a href="#" class="social-link" aria-label="Twitter" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+
+                <a href="#" class="social-link" aria-label="Facebook" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+
             </div>
             <div class="logo" style="margin-bottom: 1rem;">BlackCode</div>
             <p>&copy; 2025 Amr Salah. All rights reserved.</p>

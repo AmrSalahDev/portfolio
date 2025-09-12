@@ -1,82 +1,276 @@
+/* ========================= */
 /* Portfolio Section */
+/* ========================= */
 .portfolio {
     background: #111111;
+    /* Dark background for portfolio section */
+    padding: 4rem 2rem;
+    /* Top/bottom 4rem, left/right 2rem spacing */
 }
 
+/* ========================= */
+/* Filter Buttons */
+/* ========================= */
 .portfolio-filters {
     display: flex;
+    /* Align buttons horizontally */
     justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
+    /* Center buttons in the section */
+    gap: 0.75rem;
+    /* Space between buttons */
+    margin-bottom: 3rem;
+    /* Space below the filters */
     flex-wrap: wrap;
+    /* Wrap to next line on small screens */
 }
 
 .filter-btn {
     background: transparent;
+    /* Transparent button background */
     color: var(--text-light);
+    /* Light text color */
     border: 2px solid var(--border-color);
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+    /* Button border */
+    padding: 0.5rem 1.2rem;
+    /* Space inside button */
+    border-radius: 50px;
+    /* Rounded pill shape */
     cursor: pointer;
-    transition: var(--transition);
-    font-size: 0.9rem;
+    /* Pointer on hover */
+    transition: all 0.3s ease;
+    /* Smooth hover/focus effect */
+    font-size: 0.95rem;
+    /* Font size */
+    letter-spacing: 0.5px;
+    /* Slight spacing between letters */
 }
 
+/* Active/Hover/Focus states for buttons */
 .filter-btn.active,
 .filter-btn:hover,
 .filter-btn:focus {
     background: var(--primary-color);
+    /* Highlight background */
     border-color: var(--primary-color);
+    /* Match border to background */
     color: var(--text-white);
+    /* White text */
+    transform: scale(1.05);
+    /* Slight zoom effect */
+    outline: none;
+    /* removes default focus outline */
+    box-shadow: none;
+    /* removes any shadow if browser adds it */
+    border: none;
 }
 
+/* ========================= */
+/* Portfolio Grid */
+/* ========================= */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    /* Use CSS grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 320px));
+    /* Responsive columns */
+    justify-content: center;
+    /* Center grid if not full */
+    gap: 1.8rem;
+    /* Gap between cards */
 }
 
+/* ========================= */
+/* Portfolio Item / Card */
+/* ========================= */
 .portfolio-item {
     background: var(--card-bg);
-    border-radius: 10px;
+    /* Card background color */
+    border-radius: 12px;
+    /* Rounded corners */
     overflow: hidden;
-    transition: var(--transition);
-    border: 1px solid var(--border-color);
+    /* Clip overflowing content */
+    cursor: pointer;
+    /* Pointer on hover */
+    position: relative;
+    /* For overlay or child positioning */
+    display: flex;
+    /* Flex layout for content */
+    flex-direction: column;
+    /* Stack image + content vertically */
+    height: 380px;
+    /* Fixed height for all cards */
+    opacity: 1;
+    /* Fully visible */
+    transform: scale(1);
+    /* Default scale */
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    /* Smooth animation */
 }
 
+/* Hidden cards (used for filtering) */
+.portfolio-item.hide {
+    opacity: 0;
+    /* Fade out */
+    transform: scale(0.8);
+    /* Slight shrink */
+    pointer-events: none;
+    /* Disable clicks on hidden items */
+}
+
+/* Hover effect for cards */
 .portfolio-item:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-color);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px) scale(1.03);
+    /* Lift + scale */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.35);
+    /* Shadow for depth */
 }
 
+/* ========================= */
+/* Portfolio Image */
+/* ========================= */
 .portfolio-image {
     width: 100%;
-    height: 200px;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    /* Full width of card */
+    height: auto;
+    /* Adjust height automatically */
     display: flex;
+    /* Center the image */
     align-items: center;
     justify-content: center;
-    font-size: 3rem;
-    color: var(--text-white);
+    position: relative;
+    /* For overlay positioning */
 }
 
+.portfolio-image img {
+    width: 100%;
+    /* Fill container width */
+    height: 100%;
+    /* Fill container height */
+    object-fit: cover;
+    /* Crop image to fill container */
+    object-position: top;
+    /* Align top of image when cropped */
+    display: block;
+    transition: transform 0.4s ease;
+    /* Smooth zoom on hover */
+}
+
+/* Zoom image slightly on card hover */
+.portfolio-item:hover .portfolio-image img {
+    transform: scale(1.1);
+}
+
+/* ========================= */
+/* Portfolio Content */
+/* ========================= */
 .portfolio-content {
-    padding: 1.5rem;
+    padding: 1.5rem 1.2rem;
+    /* Space inside card */
+    flex: 1;
+    /* Take remaining space */
+    text-align: center;
+    /* Center content */
+    display: flex;
+    /* Flex column for content */
+    flex-direction: column;
 }
 
 .portfolio-content h3 {
     color: var(--primary-color);
-    margin-bottom: 0.5rem;
+    /* Title color */
+    margin-bottom: 0.6rem;
+    /* Space below title */
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
 }
 
 .portfolio-content p {
     color: var(--text-light);
     font-size: 0.9rem;
+    line-height: 1.4rem;
+
+    display: -webkit-box;
+    /* Needed for multi-line clamp */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    /* Limit to 4 lines */
+
+    display: box;
+    /* Older fallback */
+    box-orient: vertical;
+
+    line-clamp: 4;
+    /* Standard property for future */
+
+    overflow: hidden;
+    /* Hide overflow text */
+    text-overflow: ellipsis;
+    /* Show ... at end */
 }
 
-@media (max-width: 767px) {
-    .portfolio-filters {
-        flex-wrap: wrap;
+/* ========================= */
+/* Links Reset */
+/* ========================= */
+a {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+    border: none;
+}
+
+a:focus,
+a:active,
+a:focus-visible {
+    outline: none;
+    border: none;
+}
+
+/* ========================= */
+/* Responsive Styles */
+/* ========================= */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1.2rem;
+    }
+
+    .portfolio-image {
+        height: 180px;
+    }
+
+    .portfolio-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .portfolio-content p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        /* Single column on very small screens */
+        gap: 1rem;
+    }
+
+    .portfolio-image {
+        height: 160px;
+    }
+
+    .portfolio-content {
+        padding: 1rem;
+    }
+
+    .portfolio-content h3 {
+        font-size: 1rem;
+    }
+
+    .portfolio-content p {
+        font-size: 0.8rem;
+    }
+
+    .filter-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
     }
 }
