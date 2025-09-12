@@ -7,295 +7,65 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Lottie Player Web Component -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    
+    <!-- CSS Files -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/services.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/portfolio.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="logo">BlackCode</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About me</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact me</a></li>
-                <button class="close-menu">&times;</button>
-            </ul>
-            <a href="#contact" class="hire-btn">Hire Me</a>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </header>
+    <!-- Header Section -->
+    <div id="header-placeholder"></div>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Hi, I'm Amr Salah</h1>
-                <h2>Flutter Developer</h2>
-                <p>Creating beautiful, high-performance mobile applications with Flutter. Specializing in cross-platform development, UI/UX implementation, and modern app architecture.</p>
-                <div class="hero-buttons">
-                    <a href="#portfolio" class="btn btn-primary">View Work</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Experience</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">Project Done</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">30+</span>
-                        <span class="stat-label">Happy Client</span>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-image">
-                <lottie-player 
-                    src="https://raw.githubusercontent.com/AmrSalahDev/blackcode/main/laptop_lottie.json"  
-                    background="transparent"  
-                    speed="1"  
-                    style="width: 600px; height: 600px;"  
-                    loop  
-                    autoplay>
-                </lottie-player>
-            </div>
-        </div>
-    </section>
+    <div id="hero-placeholder"></div>
 
     <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title">Services</h2>
-            <p class="section-subtitle">Providing comprehensive Flutter development services to bring your ideas to life</p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
-                    <h3>Mobile App Development</h3>
-                    <p>Creating native-quality mobile applications for both iOS and Android platforms using Flutter framework with beautiful UI and smooth performance.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
-                    <h3>UI/UX Implementation</h3>
-                    <p>Converting designs into pixel-perfect, responsive Flutter interfaces with attention to detail and user experience best practices.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-bolt"></i></div>
-                    <h3>App Optimization</h3>
-                    <p>Improving app performance, reducing load times, and optimizing for better user experience and app store rankings.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-tools"></i></div>
-                    <h3>App Maintenance</h3>
-                    <p>Providing ongoing support, updates, bug fixes, and feature enhancements for existing Flutter applications.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-rocket"></i></div>
-                    <h3>MVP Development</h3>
-                    <p>Rapid prototyping and MVP development to help startups validate their ideas and get to market quickly.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
-                    <h3>Consulting</h3>
-                    <p>Technical consulting on Flutter architecture, best practices, code reviews, and strategic technology decisions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div id="services-placeholder"></div>
 
     <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <lottie-player 
-                        src="https://raw.githubusercontent.com/AmrSalahDev/blackcode/main/laptop_lottie.json"  
-                        background="transparent"  
-                        speed="1"  
-                        style="width: 600px; height: 600px;"  
-                        loop  
-                        autoplay>
-                    </lottie-player>
-                </div>
-                <div class="about-text">
-                    <h2>Flutter Developer & Mobile App Specialist</h2>
-                    <p>A passionate Flutter developer with expertise in creating high-quality, cross-platform mobile applications. With over 5 years of experience in mobile development, I specialize in building scalable, maintainable, and user-friendly applications.</p>
-                    <p>I have extensive experience working with various industries including e-commerce, healthcare, fintech, and social media. My approach combines technical excellence with creative problem-solving to deliver exceptional mobile experiences.</p>
-                    <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community through blogs and speaking at conferences.</p>
-                    <a href="#contact" class="btn btn-primary">Let's Work Together</a>
-                </div>
-            </div>
-            <div class="skills-grid">
-                <div class="skill">
-                    <div class="skill-icon"><i class="fas fa-mobile"></i></div>
-                    <span class="skill-percent">100%</span>
-                    <span class="skill-name">Flutter</span>
-                </div>
-                <div class="skill">
-                    <div class="skill-icon"><i class="fa-brands fa-dart-lang"></i></div>
-                    <span class="skill-percent">95%</span>
-                    <span class="skill-name">Dart</span>
-                </div>
-                <div class="skill">
-                    <div class="skill-icon"><i class="fas fa-fire"></i></div>
-                    <span class="skill-percent">90%</span>
-                    <span class="skill-name">Firebase</span>
-                </div>
-               
-                <div class="skill">
-                    <div class="skill-icon"><i class="fas fa-paint-brush"></i></div>
-                    <span class="skill-percent">90%</span>
-                    <span class="skill-name">UI/UX Design</span>
-                </div>
-                <div class="skill">
-                    <div class="skill-icon"><i class="fas fa-cogs"></i></div>
-                    <span class="skill-percent">80%</span>
-                    <span class="skill-name">Native Integration</span>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div id="about-placeholder"></div>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <h2 class="section-title">Portfolio</h2>
-            <div class="portfolio-filters">
-                <button class="filter-btn active">All</button>
-                <button class="filter-btn">Mobile Apps</button>
-                <button class="filter-btn">E-commerce</button>
-                <button class="filter-btn">Social</button>
-                <button class="filter-btn">Games</button>
-            </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-image"><i class="fas fa-shopping-cart"></i></div>
-                    <div class="portfolio-content">
-                        <h3>E-commerce App</h3>
-                        <p>Full-featured shopping app with payment integration, cart management, and user authentication.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image"><i class="fas fa-comments"></i></div>
-                    <div class="portfolio-content">
-                        <h3>Chat Application</h3>
-                        <p>Real-time messaging app with multimedia sharing, group chats, and push notifications.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image"><i class="fas fa-hospital"></i></div>
-                    <div class="portfolio-content">
-                        <h3>Healthcare App</h3>
-                        <p>Patient management system with appointment booking, medical records, and telemedicine features.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image"><i class="fas fa-chart-line"></i></div>
-                    <div class="portfolio-content">
-                        <h3>Finance Tracker</h3>
-                        <p>Personal finance management app with expense tracking, budgeting, and financial analytics.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image"><i class="fas fa-music"></i></div>
-                    <div class="portfolio-content">
-                        <h3>Music Streaming</h3>
-                        <p>Music player app with streaming capabilities, playlists, and social sharing features.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image"><i class="fas fa-running"></i></div>
-                    <div class="portfolio-content">
-                        <h3>Fitness App</h3>
-                        <p>Workout tracking app with exercise routines, progress monitoring, and social features.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div id="portfolio-placeholder"></div>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Contact Me</h2>
-            <p class="section-subtitle">Let's discuss your next mobile app project</p>
-            <div class="contact-content">
-                <div class="contact-form">
-                    <form action="https://formspree.io/f/xgvlqvgq" method="POST">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <p>amrsalahdev71@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                        <div class="contact-details">
-                            <h4>Phone</h4>
-                            <p>+20 1120636215</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="contact-details">
-                            <h4>Location</h4>
-                            <p>Giza, Egypt</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-globe"></i></div>
-                        <div class="contact-details">
-                            <h4>Website</h4>
-                            <p>https://amrsalahdev.github.io/blackcode</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div id="contact-placeholder"></div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="social-links">
-                <a href="#" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            </div>
-            <div class="logo" style="margin-bottom: 1rem;">BlackCode</div>
-            <p>&copy; 2025 Amr Salah. All rights reserved.</p>
-        </div>
-    </footer>
+    <!-- Footer Section -->
+    <div id="footer-placeholder"></div>
 
     <script src="js/script.js"></script>
+    
+    <!-- Load Sections -->
+    <script>
+        // Function to load HTML sections
+        function loadSection(sectionId, filePath) {
+            fetch(filePath)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(sectionId).innerHTML = data;
+                    // Re-initialize any scripts that might be needed
+                    initScripts();
+                })
+                .catch(error => console.error('Error loading section:', error));
+        }
+
+        // Load all sections
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSection('header-placeholder', 'sections/header.html');
+            loadSection('hero-placeholder', 'sections/hero.html');
+            loadSection('services-placeholder', 'sections/services.html');
+            loadSection('about-placeholder', 'sections/about.html');
+            loadSection('portfolio-placeholder', 'sections/portfolio.html');
+            loadSection('contact-placeholder', 'sections/contact.html');
+            loadSection('footer-placeholder', 'sections/footer.html');
+        });
+    </script>
 </body>
 </html>
