@@ -492,9 +492,12 @@ section.visible {
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 320px));
+    justify-content: center;
+    /* center the grid when not full */
     gap: 1.5rem;
 }
+
 
 .portfolio-item {
     background: var(--card-bg);
