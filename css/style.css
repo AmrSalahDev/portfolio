@@ -504,10 +504,9 @@ section.visible {
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid var(--border-color);
-
     opacity: 1;
     transform: scale(1);
-    transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .portfolio-item.hide {
@@ -515,8 +514,9 @@ section.visible {
     transform: scale(0.8);
     pointer-events: none;
     display: none;
-    /* removes space so grid reflows */
+    /* removes it from grid */
 }
+
 
 .portfolio-item:hover {
     transform: translateY(-5px) scale(1.02);
