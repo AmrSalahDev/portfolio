@@ -1,162 +1,942 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flutter Developer Portfolio</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background-color: #0d0d0d;
-      color: #f5f5f5;
-      line-height: 1.6;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flutter Developer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    header {
-      background: #121212;
-      padding: 20px;
-      text-align: center;
-      border-bottom: 1px solid #222;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      color: #00bcd4;
-    }
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
 
-    header p {
-      color: #aaa;
-    }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    nav {
-      margin-top: 15px;
-    }
+        .logo {
+            color: #ff6b35;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
 
-    nav a {
-      color: #f5f5f5;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-    nav a:hover {
-      color: #00bcd4;
-    }
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+        .nav-links a:hover {
+            color: #ff6b35;
+        }
 
-    section {
-      margin-bottom: 60px;
-    }
+        .hire-btn {
+            background: #ff6b35;
+            color: #ffffff;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
 
-    h2 {
-      color: #00bcd4;
-      margin-bottom: 20px;
-    }
+        .hire-btn:hover {
+            background: #e55a2b;
+        }
 
-    .skills span {
-      display: inline-block;
-      background: #1a1a1a;
-      padding: 10px 15px;
-      margin: 8px;
-      border-radius: 8px;
-      border: 1px solid #333;
-    }
+        /* Mobile menu button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
 
-    .project {
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      border: 1px solid #222;
-    }
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
 
-    .project h3 {
-      margin-top: 0;
-      color: #00bcd4;
-    }
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      border-top: 1px solid #222;
-      color: #777;
-    }
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ff6b35, #ff8c42);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-    footer a {
-      color: #00bcd4;
-      text-decoration: none;
-    }
+        .hero-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
 
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #ff6b35;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #ff6b35;
+        }
+
+        .btn-secondary:hover {
+            background: #ff6b35;
+            color: #ffffff;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff6b35;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #cccccc;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: 400px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid #ff6b35;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            background: #111111;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #cccccc;
+            margin-bottom: 4rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid #333333;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff6b35;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: #ff6b35;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #ff6b35;
+        }
+
+        .service-card p {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: #0a0a0a;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            border: 3px solid #ff6b35;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #ffffff;
+        }
+
+        .about-text p {
+            color: #cccccc;
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .skill {
+            text-align: center;
+            padding: 1rem;
+            background: #1a1a1a;
+            border-radius: 10px;
+            border: 1px solid #333333;
+        }
+
+        .skill-icon {
+            width: 40px;
+            height: 40px;
+            background: #ff6b35;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.5rem;
+            font-size: 1rem;
+        }
+
+        .skill-percent {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff6b35;
+        }
+
+        .skill-name {
+            font-size: 0.8rem;
+            color: #cccccc;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 5rem 2rem;
+            background: #111111;
+        }
+
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            background: transparent;
+            color: #cccccc;
+            border: 2px solid #333333;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #ff6b35;
+            border-color: #ff6b35;
+            color: #ffffff;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            background: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid #333333;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            border-color: #ff6b35;
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #ff6b35, #ff8c42);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #ffffff;
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-content h3 {
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-content p {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: #0a0a0a;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-form {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #333333;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #cccccc;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: #0a0a0a;
+            border: 1px solid #333333;
+            border-radius: 5px;
+            color: #ffffff;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff6b35;
+        }
+
+        .contact-info {
+            padding: 2rem 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: #ff6b35;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-details h4 {
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details p {
+            color: #cccccc;
+        }
+
+        /* Footer */
+        .footer {
+            background: #111111;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid #333333;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: #ff6b35;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .social-link:hover {
+            background: #e55a2b;
+        }
+
+        .footer p {
+            color: #cccccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-image img {
+                width: 300px;
+                height: 400px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-filters {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 1rem;
+            }
+
+            .hero,
+            .services,
+            .about,
+            .portfolio,
+            .contact {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-text h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero-image img {
+                width: 250px;
+                height: 350px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-text,
+        .service-card,
+        .portfolio-item {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Hi, I'm a Flutter Developer 👋</h1>
-    <p>Building modern apps with beautiful UIs</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">LOGIC</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About me</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact me</a></li>
+            </ul>
+            <a href="#contact" class="hire-btn">Hire Me</a>
+            <button class="mobile-menu-btn">☰</button>
+        </nav>
+    </header>
 
-  <div class="container">
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I'm a passionate Flutter developer who loves crafting cross-platform apps 
-        with elegant design and smooth performance. I focus on clean architecture, 
-        performance optimization, and delivering high-quality mobile solutions.
-      </p>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Hi, I'm Mahmoud Fazle</h1>
+                <h2>Flutter Developer</h2>
+                <p>Creating beautiful, high-performance mobile applications with Flutter. Specializing in cross-platform development, UI/UX implementation, and modern app architecture.</p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-primary">View Work</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Experience</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Project Done</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">30+</div>
+                        <div class="stat-label">Happy Client</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='500' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23222'/%3E%3Ctext x='200' y='250' text-anchor='middle' dy='.3em' fill='%23666' font-size='20'%3EDeveloper Photo%3C/text%3E%3C/svg%3E" alt="Flutter Developer">
+            </div>
+        </div>
     </section>
 
-    <section id="skills" class="skills">
-      <h2>Skills</h2>
-      <span>Flutter</span>
-      <span>Dart</span>
-      <span>Firebase</span>
-      <span>REST APIs</span>
-      <span>Bloc / Cubit</span>
-      <span>Clean Architecture</span>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Services</h2>
+            <p class="section-subtitle">Providing comprehensive Flutter development services to bring your ideas to life</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Mobile App Development</h3>
+                    <p>Creating native-quality mobile applications for both iOS and Android platforms using Flutter framework with beautiful UI and smooth performance.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>UI/UX Implementation</h3>
+                    <p>Converting designs into pixel-perfect, responsive Flutter interfaces with attention to detail and user experience best practices.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>App Optimization</h3>
+                    <p>Improving app performance, reducing load times, and optimizing for better user experience and app store rankings.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>App Maintenance</h3>
+                    <p>Providing ongoing support, updates, bug fixes, and feature enhancements for existing Flutter applications.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>MVP Development</h3>
+                    <p>Rapid prototyping and MVP development to help startups validate their ideas and get to market quickly.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💡</div>
+                    <h3>Consulting</h3>
+                    <p>Technical consulting on Flutter architecture, best practices, code reviews, and strategic technology decisions.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="project">
-        <h3>📱 MyApp</h3>
-        <p>A modern Flutter app with real-time chat, authentication, and push notifications.</p>
-      </div>
-      <div class="project">
-        <h3>🎨 UI Kit</h3>
-        <p>A collection of beautiful Flutter UI components designed for rapid development.</p>
-      </div>
-      <div class="project">
-        <h3>🛒 ShopEase</h3>
-        <p>An e-commerce app built with Flutter and Firebase featuring cart, payments, and order tracking.</p>
-      </div>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='500' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23333'/%3E%3Ctext x='200' y='250' text-anchor='middle' dy='.3em' fill='%23888' font-size='18'%3EAbout Photo%3C/text%3E%3C/svg%3E" alt="About Me">
+                </div>
+                <div class="about-text">
+                    <h2>Flutter Developer & Mobile App Specialist</h2>
+                    <p>A passionate Flutter developer with expertise in creating high-quality, cross-platform mobile applications. With over 5 years of experience in mobile development, I specialize in building scalable, maintainable, and user-friendly applications.</p>
+                    <p>I have extensive experience working with various industries including e-commerce, healthcare, fintech, and social media. My approach combines technical excellence with creative problem-solving to deliver exceptional mobile experiences.</p>
+                    <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community through blogs and speaking at conferences.</p>
+                    <a href="#contact" class="btn btn-primary">Let's Work Together</a>
+                </div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill">
+                    <div class="skill-icon">📱</div>
+                    <div class="skill-percent">100%</div>
+                    <div class="skill-name">Flutter</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon">🎯</div>
+                    <div class="skill-percent">95%</div>
+                    <div class="skill-name">Dart</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon">🔥</div>
+                    <div class="skill-percent">90%</div>
+                    <div class="skill-name">Firebase</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon">🎨</div>
+                    <div class="skill-percent">85%</div>
+                    <div class="skill-name">UI/UX Design</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon">⚙️</div>
+                    <div class="skill-percent">80%</div>
+                    <div class="skill-name">Native Integration</div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
-      <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/yourusername" target="_blank">linkedin.com/in/yourusername</a></p>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Portfolio</h2>
+            <div class="portfolio-filters">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Mobile Apps</button>
+                <button class="filter-btn">E-commerce</button>
+                <button class="filter-btn">Social</button>
+                <button class="filter-btn">Games</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🛍️</div>
+                    <div class="portfolio-content">
+                        <h3>E-commerce App</h3>
+                        <p>Full-featured shopping app with payment integration, cart management, and user authentication.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">💬</div>
+                    <div class="portfolio-content">
+                        <h3>Chat Application</h3>
+                        <p>Real-time messaging app with multimedia sharing, group chats, and push notifications.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🏥</div>
+                    <div class="portfolio-content">
+                        <h3>Healthcare App</h3>
+                        <p>Patient management system with appointment booking, medical records, and telemedicine features.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">💰</div>
+                    <div class="portfolio-content">
+                        <h3>Finance Tracker</h3>
+                        <p>Personal finance management app with expense tracking, budgeting, and financial analytics.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🎵</div>
+                    <div class="portfolio-content">
+                        <h3>Music Streaming</h3>
+                        <p>Music player app with streaming capabilities, playlists, and social sharing features.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🏋️</div>
+                    <div class="portfolio-content">
+                        <h3>Fitness App</h3>
+                        <p>Workout tracking app with exercise routines, progress monitoring, and social features.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-  </div>
 
-  <footer>
-    <p>© 2025 Flutter Developer. Built with ❤️ and Flutter spirit.</p>
-  </footer>
-</body>
-</html>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <p class="section-subtitle">Let's discuss your next mobile app project</p>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>mahmoud.fazle@example.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+20 123 456 789</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Cairo, Egypt</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div class="contact-details">
+                            <h4>Website</h4>
+                            <p>www.mahmoudfazle.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" class="social-link">📧</a>
+                <a href="#" class="social-link">💼</a>
+                <a href="#" class="social-link">🐱</a>
+                <a href="#" class="social-link">📘</a>
+                <a href="#" class="social-link">🐦</a>
+            </div>
+            <div class="logo" style="margin-bottom: 1rem;">LOGIC</div>
+            <p>&copy; 2025 Mahmoud Fazle. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Portfolio filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                // Show all items for "All" filter, or implement specific filtering logic
+                portfolioItems.forEach(item => {
+                    item.style.display = 'block';
+                });
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault
