@@ -671,11 +671,8 @@
                 </div>
             </div>
             <div class="hero-image">
-  <img src="https://raw.githubusercontent.com/AmrSalahDev/blackcode/main/IMG_20250217_183632.jpg" 
-       alt="Flutter Developer" 
-       style="width:400px; height:500px; object-fit:cover;">
-</div>
-
+                <img src="https://github.com/AmrSalahDev/blackcode/blob/main/IMG_20250217_183632.jpg width='400' height='500' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23222'/%3E%3Ctext x='200' y='250' text-anchor='middle' dy='.3em' fill='%23666' font-size='20'%3EDeveloper Photo%3C/text%3E%3C/svg%3E" alt="Flutter Developer">
+            </div>
         </div>
     </section>
 
@@ -725,7 +722,7 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-image">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='500' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23333'/%3E%3Ctext x='200' y='250' text-anchor='middle' dy='.3em' fill='%23888' font-size='18'%3EAbout Photo%3C/text%3E%3C/svg%3E" alt="About Me">
+                    <img src="https://github.com/AmrSalahDev/blackcode/blob/main/IMG_20250217_183632.jpg width='400' height='500' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23333'/%3E%3Ctext x='200' y='250' text-anchor='middle' dy='.3em' fill='%23888' font-size='18'%3EAbout Photo%3C/text%3E%3C/svg%3E" alt="About Me">
                 </div>
                 <div class="about-text">
                     <h2>Flutter Developer & Mobile App Specialist</h2>
@@ -855,28 +852,28 @@
                         <div class="contact-icon">📧</div>
                         <div class="contact-details">
                             <h4>Email</h4>
-                            <p>mahmoud.fazle@example.com</p>
+                            <p>amrsalahdev71@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">📱</div>
                         <div class="contact-details">
                             <h4>Phone</h4>
-                            <p>+20 123 456 789</p>
+                            <p>+20 1120636215</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">📍</div>
                         <div class="contact-details">
                             <h4>Location</h4>
-                            <p>Cairo, Egypt</p>
+                            <p>Giza, Egypt</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">🌐</div>
                         <div class="contact-details">
                             <h4>Website</h4>
-                            <p>www.mahmoudfazle.com</p>
+                            <p>https://amrsalahdev.github.io/blackcode</p>
                         </div>
                     </div>
                 </div>
@@ -894,8 +891,8 @@
                 <a href="#" class="social-link">📘</a>
                 <a href="#" class="social-link">🐦</a>
             </div>
-            <div class="logo" style="margin-bottom: 1rem;">LOGIC</div>
-            <p>&copy; 2025 Mahmoud Fazle. All rights reserved.</p>
+            <div class="logo" style="margin-bottom: 1rem;">BlackCode</div>
+            <p>&copy; 2025 Amr Salah. All rights reserved.</p>
         </div>
     </footer>
 
@@ -905,7 +902,21 @@
         const navLinks = document.querySelector('.nav-links');
 
         mobileMenuBtn.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.classList.toggle('mobile-active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('mobile-active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav') && navLinks.classList.contains('mobile-active')) {
+                navLinks.classList.remove('mobile-active');
+            }
         });
 
         // Portfolio filter functionality
