@@ -145,7 +145,7 @@
                     <span class="skill-name">Flutter</span>
                 </div>
                 <div class="skill">
-                    <div class="skill-icon"><i class="fa-brands fa-dart-lang"></i></div>
+                    <div class="skill-icon"><i class="fas fa-dart-lang"></i></div>
                     <span class="skill-percent">95%</span>
                     <span class="skill-name">Dart</span>
                 </div>
@@ -173,15 +173,19 @@
     <section id="portfolio" class="portfolio">
         <div class="container">
             <h2 class="section-title">Portfolio</h2>
+
+            <!-- Filter Buttons -->
             <div class="portfolio-filters">
-                <button class="filter-btn active">All</button>
-                <button class="filter-btn">Mobile Apps</button>
-                <button class="filter-btn">E-commerce</button>
-                <button class="filter-btn">Social</button>
-                <button class="filter-btn">Games</button>
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+                <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+                <button class="filter-btn" data-filter="social">Social</button>
+                <button class="filter-btn" data-filter="games">Games</button>
             </div>
+
+            <!-- Portfolio Grid -->
             <div class="portfolio-grid">
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-category="ecommerce">
                     <div class="portfolio-image"><i class="fas fa-shopping-cart"></i></div>
                     <div class="portfolio-content">
                         <h3>E-commerce App</h3>
@@ -189,14 +193,16 @@
                             authentication.</p>
                     </div>
                 </div>
-                <div class="portfolio-item">
+
+                <div class="portfolio-item" data-category="social">
                     <div class="portfolio-image"><i class="fas fa-comments"></i></div>
                     <div class="portfolio-content">
                         <h3>Chat Application</h3>
                         <p>Real-time messaging app with multimedia sharing, group chats, and push notifications.</p>
                     </div>
                 </div>
-                <div class="portfolio-item">
+
+                <div class="portfolio-item" data-category="mobile">
                     <div class="portfolio-image"><i class="fas fa-hospital"></i></div>
                     <div class="portfolio-content">
                         <h3>Healthcare App</h3>
@@ -204,7 +210,8 @@
                             features.</p>
                     </div>
                 </div>
-                <div class="portfolio-item">
+
+                <div class="portfolio-item" data-category="mobile">
                     <div class="portfolio-image"><i class="fas fa-chart-line"></i></div>
                     <div class="portfolio-content">
                         <h3>Finance Tracker</h3>
@@ -212,14 +219,16 @@
                         </p>
                     </div>
                 </div>
-                <div class="portfolio-item">
+
+                <div class="portfolio-item" data-category="games">
                     <div class="portfolio-image"><i class="fas fa-music"></i></div>
                     <div class="portfolio-content">
                         <h3>Music Streaming</h3>
                         <p>Music player app with streaming capabilities, playlists, and social sharing features.</p>
                     </div>
                 </div>
-                <div class="portfolio-item">
+
+                <div class="portfolio-item" data-category="mobile">
                     <div class="portfolio-image"><i class="fas fa-running"></i></div>
                     <div class="portfolio-content">
                         <h3>Fitness App</h3>
@@ -344,19 +353,22 @@
         });
 
         // Portfolio filter functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        const items = document.querySelectorAll(".portfolio-item");
 
         filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
-                btn.classList.add('active');
+            btn.addEventListener("click", () => {
+                filterBtns.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
 
-                // Show all items for "All" filter, or implement specific filtering logic
-                portfolioItems.forEach(item => {
-                    item.style.display = 'block';
+                const filter = btn.getAttribute("data-filter");
+
+                items.forEach(item => {
+                    if (filter === "all" || item.getAttribute("data-category") === filter) {
+                        item.classList.remove("hide");
+                    } else {
+                        item.classList.add("hide");
+                    }
                 });
             });
         });
