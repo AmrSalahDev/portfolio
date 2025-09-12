@@ -109,6 +109,11 @@
         height: auto;
     }
 
+    .skill-icon img.dart-icon {
+    width: 40px;       /* adjust size */
+    filter: brightness(0) invert(1); /* makes the logo white */
+}
+
     .skills-grid {
         grid-template-columns: 1fr 1fr;
         gap: 0.75rem;
