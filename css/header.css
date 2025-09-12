@@ -6,10 +6,11 @@
     background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    padding: 1rem;
+    padding: 1rem 2rem;
     border-bottom: 1px solid var(--border-color);
 }
 
+/* Nav container */
 .nav {
     display: flex;
     justify-content: space-between;
@@ -18,6 +19,7 @@
     margin: 0 auto;
 }
 
+/* Logo */
 .logo {
     color: var(--primary-color);
     font-size: 1.5rem;
@@ -25,10 +27,12 @@
     z-index: 1001;
 }
 
+/* Desktop nav links */
 .nav-links {
     display: flex;
     list-style: none;
     gap: 1.5rem;
+    align-items: center;
 }
 
 .nav-links a {
@@ -61,6 +65,7 @@
     width: 100%;
 }
 
+/* Hire button */
 .hire-btn {
     background: var(--primary-color);
     color: var(--text-white);
@@ -79,9 +84,9 @@
     transform: translateY(-2px);
 }
 
-/* Mobile menu button */
+/* Mobile menu button (hamburger) */
 .mobile-menu-btn {
-    display: none;
+    display: none; /* hidden by default on desktop */
     background: none;
     border: none;
     color: var(--text-white);
@@ -99,7 +104,8 @@
     outline: none;
 }
 
-/* Mobile menu */
+
+/* Mobile menu overlay */
 .nav-links.mobile-active {
     display: flex;
     flex-direction: column;
@@ -117,12 +123,13 @@
 }
 
 .nav-links.mobile-active a {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
+/* Close button for mobile menu */
 .close-menu {
     display: none;
-    position: absolute;
+    position: fixed; /* always top-right */
     top: 1.5rem;
     right: 1.5rem;
     background: none;
@@ -130,28 +137,79 @@
     color: var(--text-white);
     font-size: 1.8rem;
     cursor: pointer;
+    z-index: 1002;
 }
 
 .nav-links.mobile-active .close-menu {
     display: block;
 }
 
-@media (max-width: 767px) {
+@media (min-width: 992px) {
     .mobile-menu-btn {
-        display: block;
+        display: none !important; /* hide hamburger on large screens */
     }
 
     .nav-links {
-        display: none;
+        display: flex !important; /* show desktop nav links */
+        flex-direction: row;
+        position: static;
+        height: auto;
+        background: none;
+        align-items: center;
+        justify-content: flex-end;
     }
 
-    .hire-btn {
-        display: none;
+    .close-menu {
+        display: none !important;
     }
 }
 
+
+/* Responsive media queries */
+
+/* Tablets & small desktops */
+@media (max-width: 991px) {
+    .nav-links {
+        display: none; /* hide nav links by default on mobile */
+    }
+
+     .mobile-menu-btn {
+        display: block; /* show hamburger */
+    }
+}
+
+/* Extra small screens (mobiles) */
 @media (max-width: 480px) {
     .header {
-        padding: 1rem;
+        padding: 0.8rem 1rem;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .hire-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .mobile-menu-btn {
+        font-size: 1.3rem;
+    }
+
+    .nav-links.mobile-active a {
+        font-size: 1.3rem;
+    }
+}
+
+/* Animation for mobile menu */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

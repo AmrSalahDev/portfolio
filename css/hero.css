@@ -1,10 +1,12 @@
 .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 6rem 1rem 2rem;
-    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-light) 100%);
+    min-height: 100vh; /* Minimum height = 100% of the viewport height */
+    display: flex; /* Make the element a flex container to easily arrange child elements */
+    align-items: center; /* Vertically center the child elements within the container */
+    padding: 6rem 1rem 2rem; /* Padding: top 6rem, right/left 1rem, bottom 2rem */
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-light) 100%); 
+    /* Background: linear gradient from dark to light color at a 135-degree angle */
 }
+
 
 .hero-content {
     max-width: 1200px;
@@ -124,7 +126,51 @@
     height: auto;
 }
 
-/* Responsive for small mobile screens */
+@media (min-width: 992px) {
+    .hero-content {
+        grid-template-columns: 1fr 1fr;
+        text-align: left;
+    }
+
+    .hero-text {
+        order: 1;
+    }
+
+    .hero-image {
+        order: 2;
+    }
+
+    .hero-buttons {
+        justify-content: flex-start;
+    }
+
+    .hero-stats {
+        justify-content: flex-start;
+    }
+}
+
+
+@media (max-width: 991px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-image {
+        
+        order: -1;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-stats {
+        justify-content: center;
+    }
+}
+
+
 @media (max-width: 480px) {
     .hero {
         padding: 4rem 1rem 1.5rem;

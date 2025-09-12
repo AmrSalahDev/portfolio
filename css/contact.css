@@ -1,13 +1,13 @@
 /* Contact Section */
 .contact {
     background: var(--bg-dark);
+    padding: 2rem 1rem; /* default padding for small screens */
 }
 
 .contact-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    align-items: start;
+    display: flex;
+    flex-direction: column; /* stack vertically on mobile */
+    gap: 2rem;
 }
 
 .contact-form {
@@ -15,22 +15,24 @@
     padding: 1.5rem;
     border-radius: 10px;
     border: 1px solid var(--border-color);
+    order: 1; /* ensures form comes first on mobile */
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
     color: var(--text-light);
+    font-size: 0.95rem;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 1rem;
+    padding: 0.8rem;
     background: var(--bg-dark);
     border: 1px solid var(--border-color);
     border-radius: 5px;
@@ -46,39 +48,125 @@
 
 .contact-info {
     padding: 1rem 0;
+    order: 2; /* ensures info comes after form on mobile */
 }
 
 .contact-item {
     display: flex;
     align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .contact-icon {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background: var(--primary-color);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 1rem;
-    font-size: 1.2rem;
+    margin-right: 0.8rem;
+    font-size: 1rem;
     flex-shrink: 0;
 }
 
 .contact-details h4 {
     color: var(--text-white);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
 }
 
 .contact-details p {
     color: var(--text-light);
+    font-size: 0.9rem;
 }
 
+/* Tablet screens */
 @media (min-width: 768px) {
     .contact-content {
-        grid-template-columns: 1fr 1fr;
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* form + info side by side */
+        gap: 3rem;
+    }
+
+    .contact-form,
+    .contact-info {
+        order: initial; /* reset order for grid layout */
+    }
+
+    .contact-form {
+        padding: 1.8rem;
+    }
+
+    .contact-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+        margin-right: 0.9rem;
+    }
+
+    .contact-details h4 {
+        font-size: 1.05rem;
+    }
+
+    .contact-details p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Desktop / large screens */
+@media (min-width: 1200px) {
+    .contact-content {
         gap: 4rem;
+    }
+
+    .contact-form {
+        padding: 2rem;
+    }
+
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        margin-right: 1rem;
+    }
+
+    .contact-details h4 {
+        font-size: 1.1rem;
+    }
+
+    .contact-details p {
+        font-size: 1rem;
+    }
+}
+
+/* Extra small mobile adjustments */
+@media (max-width: 480px) {
+    .contact {
+        padding: 1.5rem 0.8rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.6rem;
+    }
+
+    .contact-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+        margin-right: 0.6rem;
+    }
+
+    .contact-details h4 {
+        font-size: 0.95rem;
+    }
+
+    .contact-details p {
+        font-size: 0.85rem;
+    }
+
+    .contact-content {
+        gap: 1.5rem;
     }
 }

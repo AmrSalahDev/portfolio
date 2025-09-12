@@ -5,14 +5,17 @@ function initScripts() {
     const navLinks = document.querySelector('.nav-links');
     const closeMenuBtn = document.querySelector('.close-menu');
 
-    function toggleMenu() {
-        navLinks.classList.toggle('mobile-active');
-        document.body.style.overflow = navLinks.classList.contains('mobile-active') ? 'hidden' : '';
+  function toggleMenu() {
+    navLinks.classList.toggle('mobile-active');
+    const isActive = navLinks.classList.contains('mobile-active');
+    
+    document.body.style.overflow = isActive ? 'hidden' : '';
+    mobileMenuBtn.style.display = isActive ? 'none' : 'block'; // hide/show hamburger
+    
+    // Update aria-expanded
+    mobileMenuBtn.setAttribute('aria-expanded', isActive);
+}
 
-        // Update aria-expanded attribute for accessibility
-        const isExpanded = navLinks.classList.contains('mobile-active');
-        mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
-    }
 
     mobileMenuBtn.addEventListener('click', toggleMenu);
     closeMenuBtn.addEventListener('click', toggleMenu);
