@@ -6,38 +6,29 @@ function initScripts() {
     const closeMenuBtn = document.querySelector('.close-menu');
 
     function toggleMenu() {
-        if (navLinks) {
-            navLinks.classList.toggle('mobile-active');
-            document.body.style.overflow = navLinks.classList.contains('mobile-active') ? 'hidden' : '';
-            
-            // Update aria-expanded attribute for accessibility
-            const isExpanded = navLinks.classList.contains('mobile-active');
-            mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
-        }
+        navLinks.classList.toggle('mobile-active');
+        document.body.style.overflow = navLinks.classList.contains('mobile-active') ? 'hidden' : '';
+
+        // Update aria-expanded attribute for accessibility
+        const isExpanded = navLinks.classList.contains('mobile-active');
+        mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
     }
 
-    if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', toggleMenu);
-    }
-
-    if (closeMenuBtn) {
-        closeMenuBtn.addEventListener('click', toggleMenu);
-    }
+    mobileMenuBtn.addEventListener('click', toggleMenu);
+    closeMenuBtn.addEventListener('click', toggleMenu);
 
     // Close mobile menu when clicking on a link
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
-            if (navLinks) {
-                navLinks.classList.remove('mobile-active');
-                document.body.style.overflow = '';
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            }
+            navLinks.classList.remove('mobile-active');
+            document.body.style.overflow = '';
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
         });
     });
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
-        if (navLinks && !e.target.closest('.nav') && navLinks.classList.contains('mobile-active')) {
+        if (!e.target.closest('.nav') && navLinks.classList.contains('mobile-active')) {
             navLinks.classList.remove('mobile-active');
             document.body.style.overflow = '';
             mobileMenuBtn.setAttribute('aria-expanded', 'false');
@@ -45,19 +36,22 @@ function initScripts() {
     });
 
     // Portfolio filter functionality
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const items = document.querySelectorAll(".portfolio-item");
 
     filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterBtns.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
-            btn.classList.add('active');
+        btn.addEventListener("click", () => {
+            filterBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
 
-            // Show all items for "All" filter, or implement specific filtering logic
-            portfolioItems.forEach(item => {
-                item.style.display = 'block';
+            const filter = btn.getAttribute("data-filter");
+
+            items.forEach(item => {
+                if (filter === "all" || item.getAttribute("data-category") === filter) {
+                    item.classList.remove("hide");
+                } else {
+                    item.classList.add("hide");
+                }
             });
         });
     });
@@ -77,31 +71,29 @@ function initScripts() {
     });
 
     // Form submission
-    const form = document.querySelector('form');
-    if (form) {
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
+    document.querySelector('form').addEventListener('submit', async function (e) {
+        e.preventDefault();
 
-            const data = new FormData(form);
+        const form = this;
+        const data = new FormData(form);
 
-            try {
-                const response = await fetch("https://formspree.io/f/xgvlqvgq", {
-                    method: "POST",
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
-                });
+        try {
+            const response = await fetch("https://formspree.io/f/xgvlqvgq", {
+                method: "POST",
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
 
-                if (response.ok) {
-                    //alert('✅ Thank you for your message! I will get back to you soon.');
-                    form.reset();
-                } else {
-                    alert('❌ Oops! Something went wrong. Please try again.');
-                }
-            } catch (error) {
-                alert('⚠️ Network error. Please check your connection and try again.');
+            if (response.ok) {
+                //alert('✅ Thank you for your message! I will get back to you soon.');
+                form.reset();
+            } else {
+                alert('❌ Oops! Something went wrong. Please try again.');
             }
-        });
-    }
+        } catch (error) {
+            alert('⚠️ Network error. Please check your connection and try again.');
+        }
+    });
 
     // Scroll-trigger animations
     const sections = document.querySelectorAll("section");
@@ -122,6 +114,6 @@ function initScripts() {
 }
 
 // Initialize scripts when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     initScripts();
 });
