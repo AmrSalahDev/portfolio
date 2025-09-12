@@ -217,11 +217,11 @@ a {
     border: none;
 }
 
-a:focus,
-a:active,
-a:focus-visible {
-    outline: none;
-    border: none;
+.portfolio-item a:focus,
+.portfolio-item a:active,
+.portfolio-item a:focus-visible {
+    outline: none;      /* removes the browser focus ring */
+    box-shadow: none;   /* removes shadow added by some browsers */
 }
 
 /* ========================= */
