@@ -130,7 +130,7 @@
 .portfolio-image {
     width: 100%;
     /* Full width of card */
-    height: auto;
+    height: 50%;
     /* Adjust height automatically */
     display: flex;
     /* Center the image */
