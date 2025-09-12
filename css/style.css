@@ -512,7 +512,10 @@ section.visible {
     opacity: 0;
     transform: scale(0.8);
     pointer-events: none;
+    position: absolute;   /* take it out of the flow */
+    visibility: hidden;   /* keep it hidden but still animatable */
 }
+
 
 .portfolio-item:hover {
     transform: translateY(-5px) scale(1.02); /* add slight scale for smoother effect */
