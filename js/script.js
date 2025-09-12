@@ -37,24 +37,32 @@ function initScripts() {
 
     // Portfolio filter functionality
     const filterBtns = document.querySelectorAll(".filter-btn");
-    const items = document.querySelectorAll(".portfolio-item");
+  const items = document.querySelectorAll(".portfolio-item");
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener("click", () => {
-            filterBtns.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
+  filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      filterBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
 
-            const filter = btn.getAttribute("data-filter");
+      const filter = btn.getAttribute("data-filter");
 
-            items.forEach(item => {
-                if (filter === "all" || item.getAttribute("data-category") === filter) {
-                    item.classList.remove("hide");
-                } else {
-                    item.classList.add("hide");
-                }
-            });
-        });
+      items.forEach(item => {
+        if (filter === "all" || item.getAttribute("data-category") === filter) {
+          // show with fade-in
+          item.style.display = "block";
+          setTimeout(() => item.classList.remove("hide"), 10);
+        } else {
+          // fade out first, then remove from layout
+          item.classList.add("hide");
+          setTimeout(() => {
+            if (item.classList.contains("hide")) {
+              item.style.display = "none";
+            }
+          }, 400); // match CSS transition duration
+        }
+      });
     });
+  });
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
