@@ -109,9 +109,11 @@
         height: auto;
     }
 
-    .skill-icon img.dart-icon {
-    width: 40px;       /* adjust size */
-    filter: brightness(0) invert(1); /* makes the logo white */
+   .skill-icon.dart-icon {
+    width: 40px;
+    height: 40px;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/7/7e/Dart-logo.png') no-repeat center/contain;
+    filter: brightness(0) invert(1); /* white color */
 }
 
     .skills-grid {
