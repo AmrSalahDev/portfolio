@@ -1,6 +1,6 @@
-/* About Section */
 .about {
     background: var(--bg-dark);
+    
 }
 
 .about-content {
@@ -11,12 +11,18 @@
     text-align: center;
 }
 
-.about-image img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 10px;
-    border: 3px solid var(--primary-color);
-    box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
+.about-image {
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+}
+
+
+.about-image lottie-player {
+   width: 100%;
+    max-width: 350px;
+    height: auto;
+    
 }
 
 .about-text h2 {
@@ -81,5 +87,51 @@
     .about-content {
         grid-template-columns: 1fr 2fr;
         text-align: left;
+    }
+}
+
+/* Responsive for small mobile screens */
+@media (max-width: 480px) {
+    .about-content {
+        gap: 1.5rem;
+    }
+
+    .about-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-text p {
+        font-size: 0.95rem;
+    }
+
+    .about-image lottie-player {
+        max-width: 250px;
+        height: auto;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+    }
+
+    .skill-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+
+    .skill-percent {
+        font-size: 1rem;
+    }
+
+    .skill-name {
+        font-size: 0.75rem;
+    }
+}
+
+/* Extra small devices <360px */
+@media (max-width: 360px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
     }
 }
