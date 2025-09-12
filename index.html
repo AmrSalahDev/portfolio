@@ -50,8 +50,6 @@
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById(sectionId).innerHTML = data;
-                    // Re-initialize any scripts that might be needed
-                    initScripts();
                 })
                 .catch(error => console.error('Error loading section:', error));
         }
